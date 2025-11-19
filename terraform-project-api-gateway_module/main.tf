@@ -106,8 +106,8 @@ data "aws_iam_policy_document" "inline_policy" {
 }
 
 # The Policy for Permission Boundary
-data "aws_iam_policy" "mcp_operator_policy" {
-  name = "maap-spsdeploy"
+data "aws_iam_policy" "smce_operator_policy" {
+  name = "zsmce-tenantOperator-AMI-APIG"
 }
 
 # IAM Role for Lambda Authorizer
@@ -118,7 +118,7 @@ resource "aws_iam_role" "iam_for_lambda_auth" {
     policy = data.aws_iam_policy_document.inline_policy.json
   }
   assume_role_policy   = data.aws_iam_policy_document.assume_role.json
-  permissions_boundary = data.aws_iam_policy.mcp_operator_policy.arn
+  permissions_boundary = data.aws_iam_policy.smce_operator_policy.arn
 }
 
 # Unity CS Common Auth Lambda

@@ -28,7 +28,7 @@ resource "aws_iam_role" "cluster_iam_role" {
     ],
   })
 
-  permissions_boundary = data.aws_iam_policy.mcp_operator_policy.arn
+  permissions_boundary = data.aws_iam_policy.smce_operator_policy.arn
 
 }
 
